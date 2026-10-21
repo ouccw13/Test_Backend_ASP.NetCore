@@ -33,7 +33,7 @@ public class CartController : ControllerBase
     }
 
     /// <summary>
-    /// ดึงข้อมูลตระกร้าสินค้า (หากยังไม่มีจะสร้างตระกร้าเปล่าให้โดยอัตโนมัติ ไม่จำเป็นต้องส่ง userId)
+    /// ดึงข้อมูลตะกร้าสินค้า (หากยังไม่มีจะสร้างตะกร้าเปล่าให้โดยอัตโนมัติ ไม่จำเป็นต้องส่ง userId)
     /// </summary>
     [HttpGet]
     [HttpGet("{userId?}")]
@@ -42,11 +42,11 @@ public class CartController : ControllerBase
     {
         var resolvedUserId = ResolveUserId(userId);
         var cart = await _cartService.GetCartAsync(resolvedUserId);
-        return Ok(ApiResponse<Cart>.Ok(cart, "ดึงข้อมูลตระกร้าสินค้าสำเร็จ"));
+        return Ok(ApiResponse<Cart>.Ok(cart, "ดึงข้อมูลตะกร้าสินค้าสำเร็จ"));
     }
 
     /// <summary>
-    /// เพิ่มสินค้าลงในตระกร้า (หากมีอยู่แล้วจะบวกจำนวนเพิ่ม และตรวจสอบสต็อก ไม่จำเป็นต้องส่ง userId)
+    /// เพิ่มสินค้าลงในตะกร้า (หากมีอยู่แล้วจะบวกจำนวนเพิ่ม และตรวจสอบสต็อก ไม่จำเป็นต้องส่ง userId)
     /// </summary>
     [HttpPost("items")]
     [HttpPost("{userId}/items")]
@@ -65,7 +65,7 @@ public class CartController : ControllerBase
         {
             var targetUserId = ResolveUserId(userId, dto.UserId);
             var cart = await _cartService.AddItemToCartAsync(dto, targetUserId);
-            return Ok(ApiResponse<CartDto>.Ok(cart, "เพิ่มสินค้าลงในตระกร้าสำเร็จ"));
+            return Ok(ApiResponse<CartDto>.Ok(cart, "เพิ่มสินค้าลงในตะกร้าสำเร็จ"));
         }
         catch (KeyNotFoundException ex)
         {
@@ -82,7 +82,7 @@ public class CartController : ControllerBase
     }
 
     /// <summary>
-    /// ปรับปรุงจำนวนสินค้าในตระกร้า (หากระบุจำนวนเป็น 0 จะลบสินค้าออกจากตระกร้า ไม่จำเป็นต้องส่ง userId)
+    /// ปรับปรุงจำนวนสินค้าในตะกร้า (หากระบุจำนวนเป็น 0 จะลบสินค้าออกจากตะกร้า ไม่จำเป็นต้องส่ง userId)
     /// </summary>
     [HttpPut("items/{productId}")]
     [HttpPatch("items/{productId}")]
@@ -103,7 +103,7 @@ public class CartController : ControllerBase
         {
             var targetUserId = ResolveUserId(userId, dto.UserId);
             var cart = await _cartService.UpdateItemQuantityAsync(productId, dto.Quantity, targetUserId);
-            return Ok(ApiResponse<Cart>.Ok(cart, "อัปเดตจำนวนสินค้าในตระกร้าสำเร็จ"));
+            return Ok(ApiResponse<Cart>.Ok(cart, "อัปเดตจำนวนสินค้าในตะกร้าสำเร็จ"));
         }
         catch (KeyNotFoundException ex)
         {
@@ -120,7 +120,7 @@ public class CartController : ControllerBase
     }
 
     /// <summary>
-    /// ลบสินค้าออกจากตระกร้า (ไม่จำเป็นต้องส่ง userId)
+    /// ลบสินค้าออกจากตะกร้า (ไม่จำเป็นต้องส่ง userId)
     /// </summary>
     [HttpDelete("items/{productId}")]
     [HttpDelete("{userId}/items/{productId}")]
@@ -131,7 +131,7 @@ public class CartController : ControllerBase
         {
             var targetUserId = ResolveUserId(userId);
             var cart = await _cartService.RemoveItemFromCartAsync(productId, targetUserId);
-            return Ok(ApiResponse<Cart>.Ok(cart, "ลบสินค้าออกจากตระกร้าสำเร็จ"));
+            return Ok(ApiResponse<Cart>.Ok(cart, "ลบสินค้าออกจากตะกร้าสำเร็จ"));
         }
         catch (Exception ex)
         {
@@ -140,7 +140,7 @@ public class CartController : ControllerBase
     }
 
     /// <summary>
-    /// ล้างสินค้าทั้งหมดออกจากตระกร้า (ไม่จำเป็นต้องส่ง userId)
+    /// ล้างสินค้าทั้งหมดออกจากตะกร้า (ไม่จำเป็นต้องส่ง userId)
     /// </summary>
     [HttpDelete]
     [HttpDelete("{userId}")]
@@ -151,7 +151,7 @@ public class CartController : ControllerBase
         {
             var targetUserId = ResolveUserId(userId);
             var cart = await _cartService.ClearCartAsync(targetUserId);
-            return Ok(ApiResponse<Cart>.Ok(cart, "ล้างตระกร้าสินค้าเรียบร้อยแล้ว"));
+            return Ok(ApiResponse<Cart>.Ok(cart, "ล้างตะกร้าสินค้าเรียบร้อยแล้ว"));
         }
         catch (Exception ex)
         {
@@ -160,7 +160,7 @@ public class CartController : ControllerBase
     }
 
     /// <summary>
-    /// เช็คเอาท์และสั่งซื้อสินค้า (ตรวจสอบสต็อก, ตัดสต็อกสินค้าจริง และล้างตระกร้า ไม่จำเป็นต้องส่ง userId)
+    /// เช็คเอาท์และสั่งซื้อสินค้า (ตรวจสอบสต็อก, ตัดสต็อกสินค้าจริง และล้างตะกร้า ไม่จำเป็นต้องส่ง userId)
     /// </summary>
     [HttpPost("checkout")]
     [HttpPost("{userId}/checkout")]

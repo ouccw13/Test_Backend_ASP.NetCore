@@ -31,27 +31,27 @@ dotnet run
 
 ## รายละเอียด API Endpoints
 
-### 1. หมวดหมู่สินค้า (Products API)
+### 1. Products API
 
 `GET`  `/api/Products`  ดึงรายการสินค้าทั้งหมด 
 
 `POST`  `/api/Products/seed` เตรียมข้อมูลสินค้าตัวอย่าง (MacBook, iPhone, Sony Headphones ฯลฯ) 
 
-### 2. หมวดหมู่ตระกร้าสินค้า (Cart API)
+### 2. Cart API
 
-`GET`  `/api/Cart`  ดูข้อมูลตระกร้าสินค้า (สร้างให้อัตโนมัติหากยังไม่มี) 
+`GET`  `/api/Cart`  ดูข้อมูลตะกร้าสินค้า (สร้างให้อัตโนมัติหากยังไม่มี) 
 
-`POST`  `/api/Cart/items`  เพิ่มสินค้าลงในตระกร้า (ตรวจสอบสต็อกและรวมจำนวนอัตโนมัติ) 
+`POST`  `/api/Cart/items`  เพิ่มสินค้าลงในตะกร้า (ตรวจสอบสต็อกและรวมจำนวนอัตโนมัติ) 
 
-`DELETE`  `/api/Cart/items/{productId}`  ลบสินค้าชิ้นนั้นออกจากตระกร้า 
+`DELETE`  `/api/Cart/items/{productId}`  ลบสินค้าชิ้นนั้นออกจากตะกร้า 
 
-`DELETE`  `/api/Cart` | ล้างสินค้าทั้งหมดออกจากตระกร้า (Clear Cart) 
+`DELETE`  `/api/Cart` | ล้างสินค้าทั้งหมดออกจากตะกร้า (Clear Cart) 
 
-`POST`  `/api/Cart/checkout`  เช็คเอาท์และสั่งซื้อ (ตรวจสอบสต็อก, ตัดสต็อกจริงใน MongoDB, ล้างตระกร้า) 
+`POST`  `/api/Cart/checkout`  เช็คเอาท์และสั่งซื้อ (ตรวจสอบสต็อก, ตัดสต็อกจริงใน MongoDB, ล้างตะกร้า) 
 
 ##  ตัวอย่างการเรียกใช้งาน API (Example Usage)
 
-## 1. เพิ่มสินค้าลงตระกร้า (`POST /api/Cart/items`)
+## 1. เพิ่มสินค้าลงตะกร้า (`POST /api/Cart/items`)
 # Request Body:
 ```json
 {
@@ -64,7 +64,7 @@ dotnet run
 ```json
 {
   "success": true,
-  "message": "เพิ่มสินค้าลงในตระกร้าสำเร็จ",
+  "message": "เพิ่มสินค้าลงในตะกร้าสำเร็จ",
   "data": {
     "id": "6ad6ddb4c84d53564572ba09",
     "userId": "default-user",

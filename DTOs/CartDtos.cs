@@ -18,7 +18,7 @@ public class AddToCartDto
 
 public class UpdateCartItemDto
 {
-    [Range(0, 1000, ErrorMessage = "จำนวนสินค้าต้องอยู่ระหว่าง 0 ถึง 1000 (หากใส่ 0 จะลบสินค้าออกจากตระกร้า)")]
+    [Range(0, 1000, ErrorMessage = "จำนวนสินค้าต้องอยู่ระหว่าง 0 ถึง 1000 (หากใส่ 0 จะลบสินค้าออกจากตะกร้า)")]
     public int Quantity { get; set; }
 
     public string? UserId { get; set; }

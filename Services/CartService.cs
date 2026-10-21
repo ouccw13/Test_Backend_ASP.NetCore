@@ -251,7 +251,7 @@ private void CalculateCartTotals(Cart cart)
 
         if (existingItem == null)
         {
-            throw new KeyNotFoundException("ไม่พบสินค้านี้ในตระกร้า");
+            throw new KeyNotFoundException("ไม่พบสินค้านี้ในตะกร้า");
         }
 
         if (quantity <= 0)
@@ -310,7 +310,7 @@ private void CalculateCartTotals(Cart cart)
         var cart = await GetCartByUserIdAsync(userId);
         if (cart.Items == null || cart.Items.Count == 0)
         {
-            throw new InvalidOperationException("ไม่สามารถเช็คเอาท์ได้เนื่องจากไม่มีสินค้าในตระกร้า");
+            throw new InvalidOperationException("ไม่สามารถเช็คเอาท์ได้เนื่องจากไม่มีสินค้าในตะกร้า");
         }
 
         // Validate stock for all items
