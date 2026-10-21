@@ -101,7 +101,7 @@ public class ProductsController : ControllerBase
     }
 
     /// <summary>
-    /// สุ่ม/เพิ่มข้อมูลสินค้าตัวอย่าง (Sample Products) สำหรับทดสอบระบบ
+    /// เพิ่มข้อมูลสินค้าตัวอย่าง (Sample Products) สำหรับทดสอบระบบ
     /// </summary>
     [HttpPost("seed")]
     [ProducesResponseType(typeof(ApiResponse<List<Product>>), StatusCodes.Status200OK)]
