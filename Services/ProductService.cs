@@ -1,3 +1,4 @@
+using backendShoppingcart.Common;
 using backendShoppingcart.DTOs;
 using backendShoppingcart.Models;
 using Microsoft.Extensions.Options;
@@ -59,8 +60,8 @@ public class ProductService : IProductService
             Category = string.IsNullOrWhiteSpace(dto.Category) ? "ทั่วไป" : dto.Category,
             ImageUrl = dto.ImageUrl,
             IsActive = true,
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
+            CreatedAt = ThaiTimeHelper.GetThaiTime(),
+            UpdatedAt = ThaiTimeHelper.GetThaiTime()
         };
 
         await _productsCollection.InsertOneAsync(product);

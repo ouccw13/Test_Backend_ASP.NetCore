@@ -1,7 +1,5 @@
 # Shopping Cart Backend API (.NET Core & MongoDB)
 
-ระบบ Backend API สำหรับจัดการแคตตาล็อกสินค้าและระบบตระกร้าสินค้า (Shopping Cart System) พัฒนาด้วย **ASP.NET Core (.NET 10) C#** พร้อมเชื่อมต่อฐานข้อมูล **MongoDB** แบบ NoSQL
-
 ---
 
 ## 🛠️ เทคโนโลยีที่ใช้ (Tech Stack)
@@ -52,15 +50,9 @@ backendShoppingcart/
 }
 ```
 
-> **หมายเหตุ**: หากรัน MongoDB ผ่าน Docker ในเครื่อง สามารถสตาร์ทคอนเทนเนอร์ด้วยคำสั่ง:
-> ```bash
-> docker start local-mongodb local-mongo-express
-> ```
-> และสามารถเข้าดูข้อมูลใน MongoDB ผ่านเว็บ GUI (Mongo Express) ได้ที่: `http://localhost:8081`
-
 ---
 
-## 🚀 วิธีการรันโปรเจกต์ (Getting Started)
+## วิธีการรันโปรเจกต์ (Getting Started)
 
 1. **Restore dependencies**:
    ```bash
@@ -74,11 +66,11 @@ backendShoppingcart/
 
 3. **รันโปรเจกต์**:
    ```bash
-   dotnet run --launch-profile http
+   dotnet run
    ```
 
 4. **เปิดดูเอกสารและทดสอบ API ผ่าน Swagger UI**:
-   - เปิดบราวเซอร์ไปที่: [http://localhost:5131/swagger](http://localhost:5131/swagger) หรือ [http://localhost:5131](http://localhost:5131)
+   - เปิดบราวเซอร์ไปที่: [http://localhost:5131/swagger]
 
 ---
 
